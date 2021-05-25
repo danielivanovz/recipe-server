@@ -1,0 +1,27 @@
+{
+	"name": "recipe-server",
+	"version": "1.0.0",
+	"description": "Node.js, Express and Mongo REST API server to deliver recipes scraped with https://github.com/heyiamZer0/web-scrapper",
+	"main": "server.js",
+	"scripts": {
+		"devStart": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/heyiamZer0/recipe-server.git"
+	},
+	"author": "Daniel Ivanov",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/heyiamZer0/recipe-server/issues"
+	},
+	"homepage": "https://github.com/heyiamZer0/recipe-server#readme",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"express": "^4.17.1",
+		"mongoose": "^5.12.11"
+	},
+	"devDependencies": {
+		"dotenv": "^10.0.0"
+	}
+}

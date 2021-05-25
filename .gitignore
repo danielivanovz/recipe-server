@@ -1,0 +1,6 @@
+.env
+node_modules
+idea
+api
+route.rest
+.DS_Store

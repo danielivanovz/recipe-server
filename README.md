@@ -9,6 +9,4 @@ URI = mongodb+srv://databaseMongo:PASSWORD@cluster0.mongodb.net/DATABASE?retryWr
 PORT = <#PORT to run the server at>
 DB = MONGO_DATABASE_NAME
 COL = MONGO_DATABASE_COLLECTION
-PUBLIC_KEY = API_PUBLIC_KEY
-PRIVATE_KEY = API_PRIVATE_KEY
 ```

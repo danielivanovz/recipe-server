@@ -15,7 +15,7 @@ config
 		})
 	);
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
 	console.log(`Timestamp: ${Date.now()} Request: ${req.originalUrl}`);
 	next();
 });

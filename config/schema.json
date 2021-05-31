@@ -1,0 +1,63 @@
+{
+	"$jsonSchema": {
+		"bsonType": "object",
+		"required": ["title", "image", "ingredients", "category", "difficulty", "time"],
+		"properties": {
+			"title": {
+				"bsonType": "string",
+				"description": "must be a string and is required"
+			},
+			"image": {
+				"bsonType": "string",
+				"description": "must be a string and is required"
+			},
+			"ingredients": {
+				"bsonType": "array",
+				"description": "must be an array of objects containing ingredientsand quanitity",
+				"items": {
+					"bsonType": "object",
+					"required": ["ingredient", "quantity"],
+					"properties": {
+						"ingredient": {
+							"bsonType": "string",
+							"description": "must be a string and is required"
+						},
+						"quantity": {
+							"bsonType": "string",
+							"description": "must be a string and is required"
+						}
+					}
+				},
+				"uniqueItems": true
+			},
+			"category": {
+				"bsonType": "string",
+				"description": "must be a string",
+				"enum": [
+					"piatti unici",
+					"antipasti",
+					"primi piatti",
+					"secondi piatti",
+					"dolci",
+					"lievitati",
+					"salse e sughi",
+					"contorni",
+					"bevande",
+					"marmellate e conserve",
+					"torte salate",
+					"insalate"
+				]
+			},
+			"difficulty": {
+				"bsonType": "string",
+				"description": "must be a string",
+				"enum": ["facile", "media", "molto facile", "difficile"]
+			},
+			"time": {
+				"bsonType": "int",
+				"description": "must be a number, 5 < time < 100",
+				"enum": [5, 10, 15, 20, 30, 40, 45, 50, 60, 70, 80, 90, 100]
+			}
+		}
+	}
+}

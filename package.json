@@ -17,10 +17,9 @@
 	},
 	"homepage": "https://github.com/heyiamZer0/recipe-server#readme",
 	"dependencies": {
-		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
-		"mongoose": "^5.12.11"
+		"mongodb": "^7.14.0"
 	},
 	"devDependencies": {
 		"dotenv": "^10.0.0"

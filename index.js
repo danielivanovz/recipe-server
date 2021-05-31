@@ -17,13 +17,16 @@ config
 
 app.use((req, res, next) => {
 	console.log(`Timestamp: ${Date.now()} Request: ${req.originalUrl}`);
+	console.log(req.query);
 	next();
 });
 
 app.get('/api', cors(), async (req, res) => {
 	api.GET(req, client).then((result) => {
 		Object.keys(result).length === 0
-			? res.send('Invalid request, example: /api?ingredient={NameOfIngredient}&time={TimeNumber}')
+			? res.send(
+					'Invalid request, example: api?ingredient={nameOfIngredient}}&time={timeInMinutes}&difficulty={Facile/Medio/Difficile}}&category={Primo/Secondo/Dolce}'
+			  )
 			: res.json(result);
 	});
 });

@@ -7,6 +7,7 @@ exports.GET = (req, client) => {
 				$match: {
 					'ingredients.ingredient': req.query.ingredient,
 					time: parseInt(req.query.time),
+					difficulty: req.query.difficulty,
 				},
 			},
 		])
@@ -14,3 +15,5 @@ exports.GET = (req, client) => {
 
 	return result;
 };
+
+// GET http://localhost:8080/api?ingredient=Arance&time=15&difficulty=Facile

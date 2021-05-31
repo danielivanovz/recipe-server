@@ -1,3 +1,8 @@
+/**
+ * Gets all unique ingredients and returns an Object
+ *
+ * @return {Object} result with all ingredients
+ */
 exports.getUniqueIngredients = (req, client) => {
 	let result = client
 		.db(process.env.DB)
@@ -20,6 +25,11 @@ exports.getUniqueIngredients = (req, client) => {
 	return result;
 };
 
+/**
+ * Gets all recipes with @param ingredient and returns an Object
+ *
+ * @return {Object} result with all recipes
+ */
 exports.getRecipes = (req, client) => {
 	let result = client
 		.db(process.env.DB)
@@ -28,9 +38,9 @@ exports.getRecipes = (req, client) => {
 			{
 				$match: {
 					'ingredients.ingredient': req.query.ingredient,
-					time: parseInt(req.query.time),
-					difficulty: req.query.difficulty,
-					category: req.query.category,
+					// time: parseInt(req.query.time),
+					// difficulty: req.query.difficulty,
+					// category: req.query.category,
 				},
 			},
 		])

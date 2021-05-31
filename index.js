@@ -7,6 +7,11 @@ const schema = require('./config/schema.json');
 
 let client;
 
+/**
+ * Establishes connection to MongoDB and starts the server
+ *
+ * @return {Object} client MongoClient instance
+ */
 config
 	.connect()
 	.then((response) => (client = response))
@@ -16,18 +21,31 @@ config
 		})
 	);
 
+/**
+ * Logs timestamp, query in JSON and as URL
+ */
 app.use((req, res, next) => {
 	console.log(`Timestamp: ${Date.now()} Request: ${req.originalUrl}`);
 	console.log(req.query);
 	next();
 });
 
+/**
+ * Endpoint for recipe search
+ *
+ * @return {Object} result that will be send as JSON
+ */
 app.get('/api', cors(), async (req, res) => {
 	api.getRecipes(req, client).then((result) => {
 		Object.keys(result).length === 0 ? res.json(schema) : res.json(result);
 	});
 });
 
+/**
+ * Endpoint for all unique ingredients search
+ *
+ * @return {Object} result that will be send as JSON
+ */
 app.get('/ingredients', cors(), async (req, res) => {
 	api.getUniqueIngredients(req, client).then((result) => {
 		console.log(result);
@@ -35,6 +53,9 @@ app.get('/ingredients', cors(), async (req, res) => {
 	});
 });
 
+/**
+ * Endpoint for 404 Error
+ */
 app.get('*', cors(), (req, res) => {
 	res.send(`404! Invalid URL.`);
 });

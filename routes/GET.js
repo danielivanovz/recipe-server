@@ -31,7 +31,7 @@ exports.getUniqueIngredients = (req, client) => {
  * @return {Array} result with all recipes
  */
 exports.getRecipes = (req, client) => {
-	if ('second' in req.query) {
+	if (!(req.query.second === '')) {
 		let result = client
 			.db(process.env.DB)
 			.collection(process.env.COLLECTION)
@@ -41,15 +41,13 @@ exports.getRecipes = (req, client) => {
 			.toArray();
 		return result;
 	} else {
-		if ('first' in req.query) {
-			let result = client
-				.db(process.env.DB)
-				.collection(process.env.COLLECTION)
-				.find({
-					'ingredients.ingredient': { $all: [req.query.first] },
-				})
-				.toArray();
-			return result;
-		}
+		let result = client
+			.db(process.env.DB)
+			.collection(process.env.COLLECTION)
+			.find({
+				'ingredients.ingredient': { $all: [req.query.first] },
+			})
+			.toArray();
+		return result;
 	}
 };

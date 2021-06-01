@@ -1,7 +1,7 @@
 require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
 
-const options = { useUnifiedTopology: true };
+const options = { useUnifiedTopology: true, ignoreUndefined: true };
 
 /**
  * Connect to MongoDB using a URI to the cluster

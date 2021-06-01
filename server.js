@@ -37,7 +37,8 @@ app.use((req, res, next) => {
  */
 app.get('/api', cors(), async (req, res) => {
 	api.getRecipes(req, client).then((result) => {
-		Object.keys(result).length === 0 ? res.json(schema) : res.json(result);
+		//Object.keys(result).length === 0 ? res.json(schema) : res.json(result);
+		Object.keys(result).length === 0 ? res.send('err') : res.json(result);
 	});
 });
 

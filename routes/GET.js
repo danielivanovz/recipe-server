@@ -1,8 +1,11 @@
 /**
- * Gets all unique ingredients and returns an Object
+ * Gets all unique ingredients
  *
  * @return {Array} result with all ingredients
  */
+
+const { ObjectId } = require('mongodb');
+
 exports.getUniqueIngredients = (req, client) => {
 	let result = client
 		.db(process.env.DB)
@@ -26,11 +29,11 @@ exports.getUniqueIngredients = (req, client) => {
 };
 
 /**
- * Gets all recipes with @param ingredient and returns an Object
+ * Gets all recipes with @param ingredient
  *
  * @return {Array} result with all recipes
  */
-exports.getRecipes = (req, client) => {
+exports.getRecipesByIngredients = (req, client) => {
 	if (!(req.query.second === '')) {
 		let result = client
 			.db(process.env.DB)
@@ -50,4 +53,17 @@ exports.getRecipes = (req, client) => {
 			.toArray();
 		return result;
 	}
+};
+
+/**
+ * Gets all recipes with @param id
+ *
+ * @return {Array} result with all recipes
+ */
+exports.getRecipesByID = (req, client) => {
+	console.log(req.query);
+
+	let result = client.db(process.env.DB).collection(process.env.COLLECTION).find(ObjectId(req.query.id)).toArray();
+
+	return result;
 };

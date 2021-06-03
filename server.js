@@ -31,12 +31,23 @@ app.use((req, res, next) => {
 });
 
 /**
- * Endpoint for recipe search
+ * Endpoint for recipe search by Ingredient
  *
  * @return {Object} result that will be send as JSON
  */
 app.get('/api', cors(), async (req, res) => {
-	api.getRecipes(req, client).then((result) => {
+	api.getRecipesByIngredients(req, client).then((result) => {
+		Object.keys(result).length === 0 ? res.json(schema) : res.json(result);
+	});
+});
+
+/**
+ * Endpoint for recipe search by ID
+ *
+ * @return {Object} result that will be send as JSON
+ */
+app.get('/id', cors(), async (req, res) => {
+	api.getRecipesByID(req, client).then((result) => {
 		Object.keys(result).length === 0 ? res.json(schema) : res.json(result);
 	});
 });

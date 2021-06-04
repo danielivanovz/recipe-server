@@ -6,3 +6,6 @@ api
 route.rest
 package-lock.json
 API.paw
+globalConfig.json
+yarn.lock
+jest.config.js

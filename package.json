@@ -4,7 +4,9 @@
 	"description": "Node.js, Express and Mongo REST API server to deliver recipes scraped with https://github.com/heyiamZer0/web-scrapper",
 	"main": "server.js",
 	"scripts": {
-		"devStart": "nodemon server.js"
+		"run": "nodemon server.js",
+		"test": "jest",
+		"test:watch": "jest --watch"
 	},
 	"repository": {
 		"type": "git",
@@ -22,6 +24,8 @@
 		"mongodb": "^3.6.9"
 	},
 	"devDependencies": {
-		"dotenv": "^10.0.0"
+		"@shelf/jest-mongodb": "^1.2.5",
+		"dotenv": "^10.0.0",
+		"supertest": "^6.1.3"
 	}
 }

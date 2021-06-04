@@ -1,18 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const config = require('./config/database');
-const api = require('./routes/GET');
+const api = require('./routes/recipe.routes');
 const app = express();
 const schema = require('./config/schema.json');
-
-let client;
 
 /**
  * Establishes connection to MongoDB and starts the server
  *
  * @return {Object} client MongoClient instance
  */
-config
+let client = config
 	.connect()
 	.then((response) => (client = response))
 	.finally(

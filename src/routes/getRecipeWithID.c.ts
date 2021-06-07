@@ -4,7 +4,6 @@ import { collection } from '../db';
 import log from '../logger';
 import env from '../environment';
 import cors from 'cors';
-import { string } from 'yargs';
 
 const router = Router();
 
@@ -18,7 +17,6 @@ router.get('/id', cors(options), async (req: Request, res: Response) => {
 
 		res.setHeader('Content-Type', 'application/json');
 		res.end(JSON.stringify(response));
-
 		log.info(`Method ${req.method} URL: ${req.url} `);
 	} catch (error) {
 		log.error(`Error retrieving recipe by id. Request: ${req.query.id}`);

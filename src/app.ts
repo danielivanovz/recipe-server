@@ -1,7 +1,6 @@
-import express, { RequestHandler } from 'express';
+import express from 'express';
 import { establishConnection, db, collection } from './db';
 import createServer from './server';
-import cors from 'cors';
 import env from './environment';
 import log from './logger';
 

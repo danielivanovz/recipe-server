@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"watch": "tsc -w",
+		"see": "tsc -w",
 		"dev": "nodemon dist/app.js",
 		"test": "jest --detectOpenHandles --forceExit"
 	},

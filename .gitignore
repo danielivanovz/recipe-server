@@ -1,11 +1,10 @@
 .DS_Store
 .env
+.idea
+dist
 node_modules
-idea
-api
 route.rest
-package-lock.json
 API.paw
-globalConfig.json
 yarn.lock
-jest.config.js
+
+

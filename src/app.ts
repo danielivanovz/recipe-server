@@ -12,7 +12,6 @@ const startServer = async () => {
 	const PORT: number = env.getPort();
 	const mongoURI: string = env.getDBUri();
 
-	app.use(cors as (options: typeof CORS) => RequestHandler);
 	app.use(express.json());
 	app.use(express.urlencoded({ extended: false }));
 
@@ -22,7 +21,7 @@ const startServer = async () => {
 
 	const dbName: string = env.getDBName();
 	const dbCollection: string = env.getDBCollection();
-	const client = await establishConnection(dbName, dbCollection);
+	await establishConnection(dbName, dbCollection);
 };
 
 startServer();

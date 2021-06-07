@@ -1,30 +1,40 @@
 import { Router, Request, Response } from 'express';
 import { collection } from '../db';
 import log from '../logger';
+import env from '../environment';
+import cors from 'cors';
 
 const router = Router();
 
-router.get('/ingredients', async (req: Request, res: Response) => {
-	const response = await collection
-		.aggregate([
-			{
-				$unwind: '$ingredients',
-			},
-			{
-				$group: {
-					_id: null,
-					ingredients: {
-						$addToSet: '$ingredients.ingredient',
+const options: cors.CorsOptions = {
+	origin: env.getCors(),
+};
+
+router.get('/ingredients', cors(options), async (req: Request, res: Response) => {
+	try {
+		const response = await collection
+			.aggregate([
+				{
+					$unwind: '$ingredients',
+				},
+				{
+					$group: {
+						_id: null,
+						ingredients: {
+							$addToSet: '$ingredients.ingredient',
+						},
 					},
 				},
-			},
-		])
-		.toArray();
+			])
+			.toArray();
 
-	res.setHeader('Content-Type', 'application/json');
-	res.end(JSON.stringify(response));
+		res.setHeader('Content-Type', 'application/json');
+		res.end(JSON.stringify(response));
 
-	log.info(`URL: ${req.url} Method ${req.method}`);
+		log.info(`Method ${req.method} URL: ${req.url}`);
+	} catch (error) {
+		log.error;
+	}
 });
 
 export default router;

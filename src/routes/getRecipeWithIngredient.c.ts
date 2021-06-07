@@ -1,15 +1,23 @@
+import cors from 'cors';
 import { Router, Request, Response } from 'express';
 import { collection } from '../db';
 import log from '../logger';
+import env from '../environment';
 
 const router = Router();
 
-router.get('/recipe', async (req: Request, res: Response) => {
+const options: cors.CorsOptions = {
+	origin: env.getCors(),
+};
+
+router.get('/recipe', cors(options), async (req: Request, res: Response) => {
 	const result = async () => {
 		if (!(req.query.second === '')) {
 			const response = await collection
 				.find({
-					'ingredients.ingredient': { $all: [req.query.first, req.query.second] },
+					'ingredients.ingredient': {
+						$all: [RegExp(`(?:${req.query.first})`), RegExp(`(?:${req.query.second})`)],
+					},
 				})
 				.toArray();
 
@@ -30,7 +38,7 @@ router.get('/recipe', async (req: Request, res: Response) => {
 	res.setHeader('Content-Type', 'application/json');
 	res.end(JSON.stringify(response));
 
-	log.info(`URL: ${req.url} Method ${req.method} Query: ${JSON.stringify(req.query)}`);
+	log.info(`Method ${req.method} URL: ${req.url} Query: ${JSON.stringify(req.query)}`);
 });
 
 export default router;

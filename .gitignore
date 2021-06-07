@@ -6,5 +6,7 @@ node_modules
 route.rest
 API.paw
 yarn.lock
+__test__
+jest.config
 
 

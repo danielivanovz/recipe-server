@@ -18,7 +18,7 @@ const startServer = async () => {
 
 	const dbName: string = env.getDBName();
 	const dbCollection: string = env.getDBCollection();
-	await establishConnection(dbName, dbCollection);
+	await establishConnection(dbName, dbCollection).finally(process.exit());
 };
 
 startServer();

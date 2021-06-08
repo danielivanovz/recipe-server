@@ -8,5 +8,4 @@ cache:
         - 'node_modules'
     yarn: true
 script:
-    - yarn see
-    - yarn dev
+    - yarn travis

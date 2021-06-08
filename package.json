@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"see": "tsc -w",
-		"dev": "nodemon dist/app.js",
-		"travis": "ts-node src/app.ts",
+		"devJS": "nodemon dist/app.js",
+		"devTS": "ts-node src/app.ts",
 		"test": "jest --detectOpenHandles --forceExit"
 	},
 	"keywords": [],

@@ -34,7 +34,7 @@ to exit and save, hit `esc` and `:wq`
 
 
 ```sh
-yarn dev
+yarn devTS
 ```
 
 ## Usage

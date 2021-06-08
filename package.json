@@ -6,6 +6,7 @@
 	"scripts": {
 		"see": "tsc -w",
 		"dev": "nodemon dist/app.js",
+		"travis": "ts-node src/app.ts",
 		"test": "jest --detectOpenHandles --forceExit"
 	},
 	"keywords": [],

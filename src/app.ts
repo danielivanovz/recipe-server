@@ -1,5 +1,5 @@
 import express from 'express';
-import { establishConnection, db, collection } from './db';
+import { establishConnection } from './db';
 import createServer from './server';
 import env from './environment';
 import log from './logger';
@@ -7,9 +7,7 @@ import log from './logger';
 const startServer = async () => {
 	const app = createServer();
 	const HOST: string = env.getHost();
-	const CORS: string = env.getCors();
 	const PORT: number = env.getPort();
-	const mongoURI: string = env.getDBUri();
 
 	app.use(express.json());
 	app.use(express.urlencoded({ extended: false }));

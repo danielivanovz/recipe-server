@@ -8,5 +8,5 @@ API.paw
 yarn.lock
 __test__
 jest.config
-
+docs
 

@@ -1,11 +1,12 @@
 sudo: false
 language: node_js
-node_js:
-    - 16
+node_js: 'node'
 services:
     - mongodb
 cache:
     directories:
-        - node_modules
+        - 'node_modules'
+    yarn: true
 script:
-    - yarn travis
+    - yarn see
+    - yarn dev

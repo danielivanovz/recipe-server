@@ -12,13 +12,13 @@ const startServer = async () => {
 	app.use(express.json());
 	app.use(express.urlencoded({ extended: false }));
 
-	const s = app.listen(PORT, () => {
+	const server = app.listen(PORT, () => {
 		log.info(`Server is running at http://${HOST}:${PORT}`);
 	});
 
 	const dbName: string = env.getDBName();
 	const dbCollection: string = env.getDBCollection();
-	await establishConnection(dbName, dbCollection).finally(process.exit());
+	await establishConnection(dbName, dbCollection);
 };
 
 startServer();

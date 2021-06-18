@@ -2,7 +2,7 @@
 	"name": "recipe-api",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "app.js",
 	"scripts": {
 		"see": "tsc -w",
 		"devJS": "nodemon dist/app.js",

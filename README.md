@@ -14,7 +14,7 @@ Run the following script in your terminal, it will create a folder containing th
 
 
 ```sh
-git clone --depth=50 --branch=main https://github.com/heyiamZer0/recipe-server.git heyiamZer0/recipe-server recipe-scraper && cd recipe-scraper && yarn
+git clone --depth=50 --branch=main https://github.com/heyiamZer0/recipe-server.git heyiamZer0/recipe-server recipe-server && cd heyiamZer0/recipe-scraper && yarn
 ```
 create your .env file:
 

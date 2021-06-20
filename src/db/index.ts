@@ -16,12 +16,13 @@ const mongoURI: string = env.getDBUri();
 
 export const establishConnection = async (dbName: string, dbCollection: string) => {
 	const client = new MongoClient(mongoURI, options);
-
 	try {
 		const connected = await client
 			.connect()
 			.finally(() => log.info('Connection to the database established - status: ' + client['topology'].s.state));
+
 		db = connected.db(dbName);
+
 		collection = db.collection(dbCollection);
 	} catch (error) {
 		log.error;

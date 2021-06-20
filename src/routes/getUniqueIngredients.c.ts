@@ -10,7 +10,7 @@ const options: cors.CorsOptions = {
 	origin: env.getCors(),
 };
 
-router.get('/ingredients', cors(options), async (req: Request, res: Response) => {
+router.get('/ingredients', async (req: Request, res: Response) => {
 	try {
 		const response = await collection
 			.aggregate([

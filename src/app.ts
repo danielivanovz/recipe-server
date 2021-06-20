@@ -12,7 +12,7 @@ const startServer = async () => {
 	app.use(express.json());
 	app.use(express.urlencoded({ extended: false }));
 
-	const server = app.listen(PORT, () => {
+	app.listen(PORT, () => {
 		log.info(`Server is running at http://${HOST}:${PORT}`);
 	});
 

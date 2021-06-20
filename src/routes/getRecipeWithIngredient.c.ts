@@ -41,7 +41,7 @@ const checkOccurancy = async (req: Request) => {
 				},
 			},
 		])
-		.limit(20)
+		.limit(50)
 		.toArray();
 
 	return occurancy;

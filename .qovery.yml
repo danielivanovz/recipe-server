@@ -1,0 +1,15 @@
+---
+application:
+  name: "recipe-server"
+  project: "recipe-server"
+  organization: "QoveryCommunity"
+databases:
+- type: "MONGODB"
+  name: "droxs"
+  version: "4.4"
+routers:
+- name: "main-recipe-server"
+  routes:
+  - application_name: "recipe-server"
+    paths:
+    - "/*"

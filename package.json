@@ -6,7 +6,9 @@
 	"scripts": {
 		"see": "tsc -w",
 		"dev": "nodemon dist/app.js",
-		"test": "jest --detectOpenHandles --forceExit"
+		"test": "jest --detectOpenHandles --forceExit",
+		"build": "tsc",
+		"start": "node dist/app.js"
 	},
 	"keywords": [],
 	"author": "Daniel Ivanov",
